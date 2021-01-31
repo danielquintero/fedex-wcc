@@ -1,0 +1,517 @@
+{
+  "version": 1,
+  "projects": {
+    "wcc": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "apps/wcc",
+      "sourceRoot": "apps/wcc/src",
+      "prefix": "fedex",
+      "architect": {
+        "build": {
+          "builder": "@angular-builders/custom-webpack:browser",
+          "options": {
+            "customWebpackConfig": {
+              "path": "./webpack.config.js"
+            },
+            "outputPath": "dist/apps/wcc",
+            "index": "apps/wcc/src/index.html",
+            "main": "apps/wcc/src/main.ts",
+            "polyfills": "apps/wcc/src/polyfills.ts",
+            "tsConfig": "apps/wcc/tsconfig.app.json",
+            "aot": true,
+            "assets": ["apps/wcc/src/favicon.ico", "apps/wcc/src/assets"],
+            "styles": ["apps/wcc/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/wcc/src/environments/environment.ts",
+                  "with": "apps/wcc/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-builders/custom-webpack:dev-server",
+          "options": {
+            "customWebpackConfig": {
+              "path": "./webpack.config.js"
+            },
+            "browserTarget": "wcc:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "wcc:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "wcc:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/wcc/src/**/*.ts",
+              "apps/wcc/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/wcc/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/apps/wcc"]
+        }
+      }
+    },
+    "wcc-e2e": {
+      "root": "apps/wcc-e2e",
+      "sourceRoot": "apps/wcc-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/wcc-e2e/cypress.json",
+            "tsConfig": "apps/wcc-e2e/tsconfig.e2e.json",
+            "devServerTarget": "wcc:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "wcc:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/wcc-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/wcc-e2e/**/*"]
+          }
+        }
+      }
+    },
+    "shared-dashboard-feature-dashboard": {
+      "projectType": "library",
+      "root": "libs/shared/dashboard/feature-dashboard",
+      "sourceRoot": "libs/shared/dashboard/feature-dashboard/src",
+      "prefix": "fedex",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/dashboard/feature-dashboard/tsconfig.lib.json",
+              "libs/shared/dashboard/feature-dashboard/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/dashboard/feature-dashboard/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/dashboard/feature-dashboard/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/libs/shared/dashboard/feature-dashboard"]
+        }
+      },
+      "schematics": {}
+    },
+    "shared-design-system-ui": {
+      "projectType": "library",
+      "root": "libs/shared/design-system/ui",
+      "sourceRoot": "libs/shared/design-system/ui/src",
+      "prefix": "fedex-ui",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/design-system/ui/tsconfig.lib.json",
+              "libs/shared/design-system/ui/tsconfig.spec.json",
+              "libs/shared/design-system/ui/.storybook/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/design-system/ui/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/design-system/ui/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/libs/shared/design-system/ui"]
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/shared/design-system/ui/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook/shared-design-system-ui",
+            "config": {
+              "configFolder": "libs/shared/design-system/ui/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          },
+          "outputs": ["{options.outputPath}"]
+        }
+      },
+      "schematics": {}
+    },
+    "shared-dashboard-data-access": {
+      "projectType": "library",
+      "root": "libs/shared/dashboard/data-access",
+      "sourceRoot": "libs/shared/dashboard/data-access/src",
+      "prefix": "fedex",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/dashboard/data-access/tsconfig.lib.json",
+              "libs/shared/dashboard/data-access/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/dashboard/data-access/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/dashboard/data-access/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/libs/shared/dashboard/data-access"]
+        }
+      },
+      "schematics": {}
+    },
+    "wcc-feature-shell": {
+      "projectType": "library",
+      "root": "libs/wcc/feature-shell",
+      "sourceRoot": "libs/wcc/feature-shell/src",
+      "prefix": "fedex",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/wcc/feature-shell/tsconfig.lib.json",
+              "libs/wcc/feature-shell/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/wcc/feature-shell/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/wcc/feature-shell/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/libs/wcc/feature-shell"]
+        }
+      },
+      "schematics": {}
+    },
+    "shared-design-system-ui-e2e": {
+      "root": "apps/shared-design-system-ui-e2e",
+      "sourceRoot": "apps/shared-design-system-ui-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/shared-design-system-ui-e2e/cypress.json",
+            "tsConfig": "apps/shared-design-system-ui-e2e/tsconfig.e2e.json",
+            "devServerTarget": "shared-design-system-ui:storybook"
+          },
+          "configurations": {
+            "ci": {
+              "devServerTarget": "shared-design-system-ui:storybook:ci"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/shared-design-system-ui-e2e/tsconfig.e2e.json"],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/shared-design-system-ui-e2e/**/*"
+            ]
+          }
+        }
+      }
+    },
+    "shared-iam-data-access": {
+      "projectType": "library",
+      "root": "libs/shared/iam/data-access",
+      "sourceRoot": "libs/shared/iam/data-access/src",
+      "prefix": "fedex",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/iam/data-access/tsconfig.lib.json",
+              "libs/shared/iam/data-access/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/iam/data-access/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/iam/data-access/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/libs/shared/iam/data-access"]
+        }
+      },
+      "schematics": {}
+    },
+    "wcc-feature-iam": {
+      "projectType": "library",
+      "root": "libs/wcc/feature-iam",
+      "sourceRoot": "libs/wcc/feature-iam/src",
+      "prefix": "fedex",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/wcc/feature-iam/tsconfig.lib.json",
+              "libs/wcc/feature-iam/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/wcc/feature-iam/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/wcc/feature-iam/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/libs/wcc/feature-iam"]
+        }
+      },
+      "schematics": {}
+    },
+    "shared-iam-util": {
+      "projectType": "library",
+      "root": "libs/shared/iam/util",
+      "sourceRoot": "libs/shared/iam/util/src",
+      "prefix": "fedex",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/iam/util/tsconfig.lib.json",
+              "libs/shared/iam/util/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared/iam/util/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/iam/util/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/libs/shared/iam/util"]
+        }
+      },
+      "schematics": {}
+    },
+    "shared-util-http": {
+      "root": "libs/shared/util-http",
+      "sourceRoot": "libs/shared/util-http/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/util-http/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/util-http/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/libs/shared/util-http"]
+        }
+      }
+    },
+    "shared-util-form": {
+      "root": "libs/shared/util-form",
+      "sourceRoot": "libs/shared/util-form/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/util-form/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/util-form/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/libs/shared/util-form"]
+        }
+      }
+    },
+    "shared-util-mock-server": {
+      "root": "libs/shared/util-mock-server",
+      "sourceRoot": "libs/shared/util-mock-server/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/util-mock-server/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/util-mock-server/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/libs/shared/util-mock-server"]
+        }
+      }
+    },
+    "shared-design-system-icons": {
+      "projectType": "library",
+      "root": "libs/shared/design-system/icons",
+      "sourceRoot": "libs/shared/design-system/icons/src",
+      "prefix": "fedex",
+      "architect": {
+        "generate": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "npx svg-to-ts --config libs/shared/design-system/icons/.svg-to-tsrc"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/design-system/icons/tsconfig.lib.json",
+              "libs/shared/design-system/icons/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shared/design-system/icons/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/design-system/icons/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/libs/shared/design-system/icons"]
+        }
+      },
+      "schematics": {}
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@ngneat/spectator:spectator-component": {
+      "changeDetection": "OnPush",
+      "displayBlock": true,
+      "jest": true,
+      "style": "scss"
+    },
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "strict": true
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "wcc"
+}

@@ -1,0 +1,59 @@
+// inherits .mat-icon at the moment
+
+:host {
+  @apply relative;
+  @apply inline-block;
+  @apply align-middle;
+  @apply m-0;
+  @apply p-0;
+
+  height: 1px;
+  font-size: 0;
+  line-height: 0;
+}
+
+.fedex-icon {
+  @apply inline-block;
+  @apply relative;
+  @apply h-6;
+  @apply w-6;
+  @apply p-0;
+  @apply align-middle;
+  @apply text-center;
+
+  font-size: 1.5rem;
+  line-height: 1.46rem; // correction: icons line a bit to low
+  transform: translateY(-50%);
+  transition: transform 0.1s ease-in-out;
+  svg {
+    fill: red;
+  }
+
+  &.size-small {
+    @apply h-4;
+    @apply w-4;
+
+    font-size: 1rem;
+    line-height: 0.96rem; // correction: icons line a bit to low
+  }
+
+  &.color-default {
+    color: inherit;
+  }
+
+  &.color-primary {
+    svg {
+      fill: red;
+    }
+    fill: red;
+    color: var(--primary);
+  }
+
+  &.color-accent {
+    color: var(--accent);
+  }
+
+  &.color-warn {
+    color: var(--warn);
+  }
+}

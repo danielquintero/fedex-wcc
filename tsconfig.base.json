@@ -1,0 +1,43 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@fedex/ui": ["libs/shared/design-system/ui/src/index.ts"],
+      "@fedex/shared-dashboard-feature-dashboard": [
+        "libs/shared/dashboard/feature-dashboard/src/index.ts"
+      ],
+      "@fedex/shared-dashboard-data-access": [
+        "libs/shared/dashboard/data-access/src/index.ts"
+      ],
+      "@fedex/wcc-feature-iam": ["libs/wcc/feature-iam/src/index.ts"],
+      "@fedex/shared-iam-data-access": [
+        "libs/shared/iam/data-access/src/index.ts"
+      ],
+      "@fedex/shared-iam-util": ["libs/shared/iam/util/src/index.ts"],
+      "@fedex/shared-util-http": ["libs/shared/util-http/src/index.ts"],
+      "@fedex/shared-util-form": ["libs/shared/util-form/src/index.ts"],
+      "@fedex/shared-util-mock-server": [
+        "libs/shared/util-mock-server/src/index.ts"
+      ],
+      "@fedex/wcc-feature-shell": ["libs/wcc/feature-shell/src/index.ts"],
+      "@fedex/design-system/icons": [
+        "libs/shared/design-system/icons/src/index.ts"
+      ]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

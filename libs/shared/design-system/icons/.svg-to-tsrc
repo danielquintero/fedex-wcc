@@ -1,0 +1,16 @@
+{
+  "conversionType": "constants",
+  "srcFiles": [
+	"./libs/shared/design-system/icons/src/svg/**/*.svg"
+  ],
+  "outputDirectory": "./libs/shared/design-system/icons/src/lib",
+  "fileName": "icons.model",
+  "iconsFolderName": "icons",
+  "modelFileName": "icon.model",
+  "interfaceName": "Icon",
+  "typeName": "fedexIcon",
+  "delimiter": "KEBAB",
+  "prefix": "icon",
+  "optimizeForLazyLoading": true,
+  "compileSources": false
+}
