@@ -1,4 +1,46 @@
-# fedex
+# Web Coding Challenge
+
+<p align="center"><img src="https://logos-marcas.com/wp-content/uploads/2020/04/FedEx-Logo.png" width="450"></p>
+
+## WCC (Web Coding Challenge)
+
+WCC is the application implementing the requirements laid out in the assessment given by Fedex to complete the following steps:
+
+- Build a single page app with a sign-up form. ✅
+- The form should allow users to enter first name, last name, email, and password. ✅
+- All fields are required. ✅
+- Password validation:
+  - Should be a minimum of eight characters, ✅
+  - Should contain lower and uppercase letters, ✅
+  - Should not contain user’s first or last name. ✅
+- Email should be validated but there are various ways of accomplishing this. So, show us what
+  you consider as a proper email validation. ✅
+- The form should send a POST request to https://demo-api.now.sh/users. ✅
+
+### Getting started
+
+- Make sure to install dependencies, run `npm install`
+- For better dx you can install nx globally `npm i -g @nrwl/cli`, this will allow you to run any nx command from terminal. All possible nx commands are listed toward the end of this file.
+
+### How to run the project
+
+To run WCC simply run `nx serve` or `npm start`, make sure you have installed depedencies `npm i` beforehand.
+
+### Test & lint targets
+
+To run lint and unit test, you can simply run `nx run-many --target=test --all --parallel` or `nx run-many --target=lint --all --parallel` for testing or linting every app/library, respectively.
+
+Integration tests are also available for the features requested. You can run Cypress by `nx run wcc-e2e:e2e --watch`.
+
+## Aproaching the assessment
+
+For the assessment, I kept in mind the requirements, mentioned above, I used the tools that I am more experienced with and I think have the best DX. Furthermore, I have used some extras to showcase how some organisational challenges e.g.(orchestration of frontend applications, design system, mocking, testing etc) can be addressed with proper tooling (NX monorepo, storybook, miragejs, ngspectator).
+
+To help quickly put together some pleasing UI I have used Tailwind CSS.
+
+The application has one main protected/guarded route `/app/dashboard` which requires a user to be signed in. Unprotected routes are `/signin` and `/signup`. This assessment focused on the second one, where the logic/validation is implemented as requested. The other route allows a user to login to a "mocked" dashboard but it is outside the scope of the excersie and it's only there to give an idea of how the sign in could be implemented.
+
+## ---------------------- NX Dev Extensions ----------------------
 
 This project was generated using [Nx](https://nx.dev).
 

@@ -30,4 +30,4 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   declarations: [SignInContainer, IamContainer, SignUpContainer],
 })
-export class wccFeatureSigninModule {}
+export class WccFeatureSigninModule {}

@@ -18,7 +18,9 @@ export type AppRegistry = Registry<
 
 export type AppSchema = Schema<AppRegistry>;
 
-export function makeServer({ environment = 'development' } = {}) {
+export function makeServer({
+  environment = 'development',
+} = {}): Server<AppRegistry> {
   console.log(environment);
   const server = createServer({
     environment,

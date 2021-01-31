@@ -9,8 +9,7 @@ describe('sign up page', () => {
     server = makeServer({ environment: 'test' });
 
     cy.visit('/');
-    // TODO: improve selector
-    cy.get('.mt-2 > .font-medium').click();
+    cy.get('.fedex-iam-signin-start-trial').click();
   });
 
   afterEach(() => {
