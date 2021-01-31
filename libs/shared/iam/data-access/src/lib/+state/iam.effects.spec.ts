@@ -21,6 +21,7 @@ describe('IamEffects', () => {
 
   const iamApiServiceMock = jest.fn<Partial<IamApiService>, []>(() => ({
     signup: jest.fn(),
+    signin: jest.fn(),
   }));
 
   const createUserProfileEntity = (
@@ -76,6 +77,30 @@ describe('IamEffects', () => {
 
       expect(
         effects.signupUser$({ requestDelay: 10, scheduler: getTestScheduler() })
+      ).toBeObservable(expected);
+    });
+  });
+
+  describe('signinUser$', () => {
+    it('should work', () => {
+      const user = createUserProfileEntity('USER-AAA');
+      const signinPayload: IAM.UserSignIn = {
+        email: user.email,
+        password: 'Sup3RS3cr3TP4ssw0rd',
+      };
+      jest
+        .spyOn(iamApiService, 'signin')
+        .mockReturnValue(cold('a|', { a: { user } }));
+      actions = hot('-a-|', { a: IamActions.signin(signinPayload) });
+
+      const expected = hot('--a|', {
+        a: IamActions.signinSuccess({
+          user: user,
+        }),
+      });
+
+      expect(
+        effects.signinUser$({ requestDelay: 10, scheduler: getTestScheduler() })
       ).toBeObservable(expected);
     });
   });

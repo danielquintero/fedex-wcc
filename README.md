@@ -34,11 +34,25 @@ Integration tests are also available for the features requested. You can run Cyp
 
 ## Aproaching the assessment
 
+### General knowledge
+
 For the assessment, I kept in mind the requirements, mentioned above, I used the tools that I am more experienced with and I think have the best DX. Furthermore, I have used some extras to showcase how some organisational challenges e.g.(orchestration of frontend applications, design system, mocking, testing etc) can be addressed with proper tooling (NX monorepo, storybook, miragejs, ngspectator).
 
-To help quickly put together some pleasing UI I have used Tailwind CSS.
-
 The application has one main protected/guarded route `/app/dashboard` which requires a user to be signed in. Unprotected routes are `/signin` and `/signup`. This assessment focused on the second one, where the logic/validation is implemented as requested. The other route allows a user to login to a "mocked" dashboard but it is outside the scope of the excersie and it's only there to give an idea of how the sign in could be implemented.
+
+### Store
+
+Ngrx is used as state management library. I implemented a facade abstraction layer to decouple stateful components/containers from an specific library implementation as well as to accomodate for a comprenhensible API.
+
+### Styles
+
+To quickly help put together some pleasing UI, I have used Tailwind CSS. I tried to make templates more readable by using `@apply` in `.css` files rather than cluttered the templates.
+
+### Domain Driven Design
+
+This is out of scope for the assessment but I thought would be good to share how we could follow a DDD approach, we could generated clients/types from Backend specifications (Swagger, OpenAPI) to enforce the correctness of our frontend applications.
+
+The scenario for this example is simplified, but would not take much more effort to make it a real life example. `libs/shared/iam/data-access/src/lib/+state/iam.models.ts` shows how we can produce frontend library types from DTO types thanks to Typescript utility types. Besides inferring generated types, we can also generate entire clients (angular services) to fully rely on the Backend contract signature.
 
 ## ---------------------- NX Dev Extensions ----------------------
 
