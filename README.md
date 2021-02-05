@@ -56,7 +56,7 @@ The scenario for this example is simplified, but would not take much more effort
 
 ### Mocking
 
-[Miragejs]() is a fantastic library to mock requests for faster development. It stands out from many other mocking libraries because it allows to do some more complex mocking, you can basically think of miragejs as a persistent mocking library. I have set up an example of how we can use mirage with Angular both for test and for development. If you are curious how does this mocking server works in this app you can check `libs/shared/util-mock-server`.
+[Miragejs](https://miragejs.com/) is a fantastic library to mock requests for faster development. It stands out from many other mocking libraries because it allows to do some more complex mocking, you can basically think of miragejs as a persistent mocking library. I have set up an example of how we can use mirage with Angular both for test and for development. If you are curious how does this mocking server works in this app you can check `libs/shared/util-mock-server`.
 
 ## ---------------------- NX Dev Extensions ----------------------
 
