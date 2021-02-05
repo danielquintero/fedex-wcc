@@ -33,7 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
           path: 'iam',
           loadChildren: () =>
             import('@fedex/wcc-feature-iam').then(
-              (module) => module.wccFeatureSigninModule
+              (module) => module.WccFeatureSigninModule
             ),
         },
         {
