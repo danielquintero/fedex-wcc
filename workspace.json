@@ -12,8 +12,9 @@
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "customWebpackConfig": {
-              "path": "./webpack.config.js"
+              "path": "apps/wcc/webpack.config.ts"
             },
+            "allowedCommonJsDependencies": ["faker"],
             "outputPath": "dist/apps/wcc",
             "index": "apps/wcc/src/index.html",
             "main": "apps/wcc/src/main.ts",

@@ -1,10 +1,11 @@
-import { Server, Registry, Request, createServer } from 'miragejs';
+import { Server, Registry, Request, createServer, Response } from 'miragejs';
 import Schema from 'miragejs/orm/schema';
 import { UserFactory } from './factories/user';
 import { UserModel } from './models/user';
 import { signin } from './route-handlers/signin';
 import { sharedScenario } from './scenarios/shared';
 
+console.log('APARECE SHARED MOCK UTIL');
 export type AppRegistry = Registry<
   /* factories can be defined here */
   {
@@ -46,4 +47,29 @@ export function makeServer({
     },
   });
   return server;
+}
+
+/**
+ * If Cypress boots the application we delegate app's network requests to handleFromCypress available on window.
+ * handleFromCypress is registered in the cypress e2e application. (support/index.ts)
+ */
+export function setCypressServerHandler() {
+  createServer({
+    environment: 'test',
+    routes() {
+      const methods = ['get', 'put', 'patch', 'post', 'delete'];
+      methods.forEach((method) => {
+        this[method]('/*', async (schema: AppRegistry, request: Request) => {
+          const [
+            status,
+            headers,
+            body,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          ] = await (window as any).handleFromCypress(request);
+          return new Response(status, headers, body);
+        });
+      });
+      this.passthrough('https://demo-api.now.sh/users');
+    },
+  });
 }

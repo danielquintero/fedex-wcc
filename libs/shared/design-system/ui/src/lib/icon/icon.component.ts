@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   Input,
@@ -32,6 +33,7 @@ import { iconAcademicCap } from '@fedex/design-system/icons';
     </i>
   `,
   styleUrls: ['./icon.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IconComponent implements OnInit, AfterViewInit {
   @ViewChild('svgContainer') svgContainer!: ElementRef;
