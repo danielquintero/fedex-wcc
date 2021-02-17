@@ -1,0 +1,36 @@
+<!-- card -->
+<article
+  class="{{ css }}"
+  [attr.aria-label]="title"
+  [class.is-elevated]="elevated"
+>
+  <ng-content select="[card-place-at-top]"></ng-content>
+  <header>
+    <ng-content select="[card-header]"></ng-content>
+    <fedex-button
+      *ngIf="expandable"
+      id="{{ id }}-close-button"
+      type="button"
+      action="ghost"
+      i18n-label="@@uiComponentCardButtonExpand"
+      label="Expand"
+      icon="keyboard_arrow_down"
+      [iconOnly]="true"
+      ariaExpanded="{{ expanded }}"
+      ariaControls="{{ id + '-region' }}"
+      (click)="expanded = !expanded"
+    >
+    </fedex-button>
+  </header>
+  <div
+    id="{{ id }}-region"
+    role="region"
+    [attr.aria-labelledby]="expandable ? id + '-button' : null"
+    [attr.hidden]="!expanded ? '' : null"
+  >
+    <ng-content select="[card-body]"></ng-content>
+    <ng-content></ng-content>
+    <ng-content select="[card-footer]"></ng-content>
+    <ng-content select="[card-place-at-bottom]"></ng-content>
+  </div>
+</article>

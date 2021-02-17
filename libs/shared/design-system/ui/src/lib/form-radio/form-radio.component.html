@@ -1,0 +1,30 @@
+<input
+  type="radio"
+  id="fedex-form-radio-{{ id }}"
+  class="fedex-form-radio {{ css }} label-{{ labelPosition }}"
+  name="{{ name }}"
+  value="{{ value }}"
+  [attr.checked]="checked ? 'true' : null"
+  [attr.disabled]="disabled ? 'true' : null"
+  (click)="select()"
+/>
+<label
+  *ngIf="!tag"
+  for="fedex-form-radio-{{ id }}"
+  [class.full-width]="fullWidth"
+>
+  <fedex-icon
+    *ngIf="icon && iconPosition === 'left'"
+    type="{{ icon }}"
+    css="mr-2"
+  ></fedex-icon>
+  {{ label }}
+  <fedex-icon
+    *ngIf="icon && iconPosition === 'right'"
+    type="{{ icon }}"
+    css="ml-2"
+  ></fedex-icon>
+</label>
+<label *ngIf="tag" for="fedex-form-radio-{{ id }}" class="tag {{ tag }}">
+  <span class="hidden-label">{{ label }}</span>
+</label>

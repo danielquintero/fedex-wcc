@@ -11,7 +11,7 @@ import {
   email,
   MustNotMatch,
   ValidatePasswordStrength,
-} from '@fedex/shared-util-form';
+} from '@fedex/shared/utils';
 import { Validators } from '@angular/forms';
 import { IAM } from '@fedex/shared-iam-data-access';
 

@@ -1,0 +1,13 @@
+<div class="fedex-language-selector">
+  <fedex-icon type="language"></fedex-icon>
+  <mat-form-field appearance="standard">
+    <mat-select [(value)]="currentLanguage">
+      <mat-option
+        *ngFor="let language of languages; trackBy: trackByCode"
+        (click)="switchLanguage(language)"
+        [value]="language.code"
+        >{{ language.label }}</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+</div>

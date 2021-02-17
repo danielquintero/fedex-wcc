@@ -1,0 +1,102 @@
+.fedex-notification {
+  @apply flex;
+  @apply relative;
+  @apply text-color-text;
+  @apply font-normal;
+  @apply not-italic;
+  @apply text-base;
+  @apply leading-normal;
+  @apply items-center;
+
+  &::before {
+    content: '';
+
+    @apply absolute;
+    @apply left-1;
+    @apply top-1;
+    @apply bottom-1;
+    @apply w-1;
+    @apply rounded-sm;
+    @apply bg-color-primary;
+  }
+
+  ::ng-deep span {
+    @apply flex-auto;
+    @apply font-bold;
+    @apply text-color-text;
+    @apply ml-2;
+
+    .fedex-notification_subtext {
+      @apply font-normal;
+      @apply text-color-grey-05;
+      @apply ml-0;
+    }
+  }
+
+  ::ng-deep .fedex-button {
+    @apply ml-4;
+    @apply flex-none;
+
+    color: inherit;
+
+    span {
+      color: inherit;
+    }
+  }
+
+  &.is-notification-alert,
+  &.is-notification-default {
+    @apply rounded;
+    @apply py-2;
+    @apply pl-4;
+    @apply pr-2;
+
+    &::before {
+      @apply bg-color-primary;
+    }
+  }
+
+  &.has-status-info {
+    @apply border-color-info;
+    @apply bg-color-info-background;
+    @apply text-color-info-text;
+
+    &::before {
+      @apply bg-color-info;
+    }
+  }
+
+  &.has-status-error {
+    @apply border-color-error;
+    @apply bg-color-error-background;
+    @apply text-color-error-text;
+
+    &::before {
+      @apply bg-color-error;
+    }
+  }
+
+  &.has-status-success {
+    @apply border-color-success;
+    @apply bg-color-success-background;
+    @apply text-color-success-text;
+
+    &::before {
+      @apply bg-color-success;
+    }
+  }
+
+  &.has-status-warning {
+    @apply border-color-warning;
+    @apply bg-color-warning-background;
+    @apply text-color-warning-text;
+
+    &::before {
+      @apply bg-color-warning;
+    }
+  }
+}
+
+.fedex-notification-default:not(:only-child) {
+  @apply hidden;
+}

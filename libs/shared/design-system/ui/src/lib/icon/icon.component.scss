@@ -6,8 +6,8 @@
   @apply align-middle;
   @apply m-0;
   @apply p-0;
+  @apply h-0;
 
-  height: 1px;
   font-size: 0;
   line-height: 0;
 }
@@ -20,21 +20,19 @@
   @apply p-0;
   @apply align-middle;
   @apply text-center;
+  @apply outline-none;
 
   font-size: 1.5rem;
-  line-height: 1.46rem; // correction: icons line a bit to low
+  line-height: 1.5rem;
   transform: translateY(-50%);
   transition: transform 0.1s ease-in-out;
-  svg {
-    fill: red;
-  }
 
   &.size-small {
     @apply h-4;
     @apply w-4;
 
     font-size: 1rem;
-    line-height: 0.96rem; // correction: icons line a bit to low
+    line-height: 1; // correction: icons line a bit to low
   }
 
   &.color-default {
@@ -42,18 +40,26 @@
   }
 
   &.color-primary {
-    svg {
-      fill: red;
-    }
-    fill: red;
-    color: var(--primary);
+    @apply text-color-primary;
   }
 
   &.color-accent {
-    color: var(--accent);
+    @apply text-color-accent;
   }
 
-  &.color-warn {
-    color: var(--warn);
+  &.color-error {
+    @apply text-color-error-text;
+  }
+
+  &.color-info {
+    @apply text-color-info-text;
+  }
+
+  &.color-success {
+    @apply text-color-success-text;
+  }
+
+  &.color-warning {
+    @apply text-color-warning-text;
   }
 }

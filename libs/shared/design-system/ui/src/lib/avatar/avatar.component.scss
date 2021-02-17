@@ -1,0 +1,49 @@
+.fedex-avatar {
+  @apply flex;
+  @apply w-10;
+  @apply h-10;
+  @apply rounded-full;
+  @apply bg-color-primary;
+  @apply items-center;
+  @apply justify-center;
+  @apply text-white;
+  @apply font-default;
+  @apply uppercase;
+  @apply font-semibold;
+  @apply not-italic;
+  @apply text-base;
+  @apply leading-none;
+  @apply overflow-hidden;
+
+  span {
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+  }
+
+  &.size-small {
+    @apply w-6;
+    @apply h-6;
+    @apply text-xs;
+  }
+
+  &.size-large {
+    @apply w-16;
+    @apply h-16;
+    @apply text-2xl;
+  }
+
+  &.size-extra-large {
+    @apply w-32;
+    @apply h-32;
+    @apply text-4xl;
+  }
+
+  .fedex-avatar_image {
+    @apply max-w-full;
+    @apply h-auto;
+  }
+}

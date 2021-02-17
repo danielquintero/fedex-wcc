@@ -5,7 +5,7 @@ import { catchError, map, mergeMap, switchMap, tap } from 'rxjs/operators';
 import { Action } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { asyncScheduler, combineLatest, Observable, of, timer } from 'rxjs';
-import { REQUEST_DELAY } from '@fedex/shared-util-http';
+import { REQUEST_DELAY } from '@fedex/shared/utils';
 import * as IamActions from './iam.actions';
 import { IamApiService } from '../api/iam-api.service';
 

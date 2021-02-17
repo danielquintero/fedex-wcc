@@ -1,0 +1,79 @@
+<div id="{{ id }}-toolbar" class="fedex-rich-text-editor_toolbar">
+  <!-- Font styles -->
+  <span class="ql-formats">
+    <button type="button" class="ql-bold" [attr.aria-label]="labelFontBold">
+      Bold
+    </button>
+    <button type="button" class="ql-italic" [attr.aria-label]="labelFontItalic">
+      Italic
+    </button>
+    <button
+      type="button"
+      class="ql-underline"
+      [attr.aria-label]="labelFontUnderline"
+    >
+      Underline
+    </button>
+  </span>
+
+  <!-- Alignment -->
+  <span class="ql-formats">
+    <button
+      type="button"
+      class="ql-align"
+      value=""
+      [attr.aria-label]="labelAlignLeft"
+    >
+      Align left
+    </button>
+    <button
+      type="button"
+      class="ql-align"
+      value="center"
+      [attr.aria-label]="labelAlignCenter"
+    >
+      Align center
+    </button>
+    <button
+      type="button"
+      class="ql-align"
+      value="right"
+      [attr.aria-label]="labelAlignRight"
+    >
+      Align Right
+    </button>
+    <button
+      type="button"
+      class="ql-align"
+      value="justify"
+      [attr.aria-label]="labelAlignJustify"
+    >
+      Justify
+    </button>
+  </span>
+
+  <!-- List types-->
+  <span class="ql-formats">
+    <button
+      type="button"
+      class="ql-list"
+      value="ordered"
+      [attr.aria-label]="labelListOrdered"
+    >
+      Ordered list
+    </button>
+    <button
+      type="button"
+      class="ql-list"
+      value="bullet"
+      [attr.aria-label]="labelListBullet"
+    >
+      Bullet list
+    </button>
+  </span>
+</div>
+
+<!-- text-editor -->
+<div id="{{ id }}" class="fedex-rich-text-editor">
+  {{ content }}
+</div>

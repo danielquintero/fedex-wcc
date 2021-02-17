@@ -1,0 +1,29 @@
+.fedex-language-selector {
+  @apply inline-flex;
+  @apply justify-end;
+  @apply items-center;
+  @apply flex-row;
+  @apply w-auto;
+
+  color: var(--language-select-color);
+
+  ::ng-deep {
+    .fedex-icon {
+      @apply mr-2;
+    }
+
+    mat-form-field {
+      @apply w-24;
+    }
+
+    .mat-select-value,
+    .mat-select-arrow {
+      color: var(--language-select-color);
+    }
+
+    .mat-form-field-underline,
+    .mat-form-field-ripple {
+      @apply bg-current;
+    }
+  }
+}

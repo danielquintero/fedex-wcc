@@ -1,19 +1,37 @@
 import { radios } from '@storybook/addon-knobs';
-import { SharedDesignSystemUiModule } from '../shared-design-system-ui.module';
+import { storybookCodeExample } from '../../styleguide/storybook.code-example';
+import { storybookHeader } from '../../styleguide/storybook.header';
+import { UiComponentsModule } from '../components.module';
 import { IconComponent } from './icon.component';
 
 export default {
   title: 'Icons',
 };
 
+const template = `
+	<fedex-icon type="{{ type }}" color="{{ color }}" size="{{ size }}"></fedex-icon>
+`;
+
 const story = (
   size: 'regular' | 'small',
-  color: 'default' | 'primary' | 'accent' | 'warn'
+  color:
+    | 'default'
+    | 'primary'
+    | 'accent'
+    | 'info'
+    | 'error'
+    | 'success'
+    | 'warning'
 ): object => ({
   moduleMetadata: {
-    imports: [SharedDesignSystemUiModule],
+    imports: [UiComponentsModule],
   },
   component: IconComponent,
+  template: `
+		${storybookHeader('Icon')}
+		${template}
+		${storybookCodeExample(template)}
+	`,
   props: {
     size: radios('size', { small: 'small', regular: 'regular' }, size),
     color: radios(
@@ -22,11 +40,14 @@ const story = (
         default: 'default',
         primary: 'primary',
         accent: 'accent',
-        warn: 'warn',
+        error: 'error',
+        info: 'info',
+        success: 'success',
+        warning: 'warning',
       },
       color
     ),
-    iconName: radios(
+    type: radios(
       'icon',
       {
         drafts: 'drafts',
@@ -42,4 +63,4 @@ const story = (
 
 export const icon = () => ({ ...story('regular', 'default') });
 export const iconSmall = () => ({ ...story('small', 'default') });
-export const iconWarn = () => ({ ...story('small', 'warn') });
+export const iconWarn = () => ({ ...story('small', 'warning') });

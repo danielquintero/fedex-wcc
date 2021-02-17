@@ -1,2 +1,2 @@
-export * from './lib/shared-design-system-ui.module';
-export * from './lib/navbar/models/types';
+export * from './lib/avatar/avatar.module';
+export * from './lib/button/button.module';

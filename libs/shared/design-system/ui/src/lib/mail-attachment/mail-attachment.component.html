@@ -1,0 +1,35 @@
+<!-- Link -->
+<a
+  *ngIf="file.downloadable"
+  [attr.href]="url"
+  [attr.download]="file.name"
+  [attr.type]="file.fileType"
+  class="fedex-mail-attachment"
+  target="_blank"
+>
+  <span class="truncate">{{ file.name }}</span>
+  <fedex-icon
+    *ngIf="!progress || progress > 99"
+    type="file_download"
+    css="ml-2 sm:mx-2"
+    size="small"
+  ></fedex-icon>
+  <div *ngIf="progress" class="fedex-progress">
+    <div
+      class="fedex-progress-bar"
+      [style.width.%]="progress"
+      role="progressbar"
+      [attr.aria-valuenow]="progress"
+      aria-valuemin="0"
+      aria-valuemax="100"
+    >
+      {{ progress }}%
+    </div>
+  </div>
+</a>
+
+<!-- disabled -->
+<span *ngIf="!file.downloadable" class="fedex-mail-attachment is-disabled">
+  <span class="truncate">{{ file.name }}</span>
+  <fedex-icon type="file_download" css="ml-2"></fedex-icon>
+</span>

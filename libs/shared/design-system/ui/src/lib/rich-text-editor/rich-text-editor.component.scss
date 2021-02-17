@@ -1,0 +1,94 @@
+@keyframes fxEditorAppear {
+  from {
+    @apply opacity-0;
+  }
+  to {
+    @apply opacity-100;
+  }
+}
+
+.fedex-rich-text-editor,
+.fedex-rich-text-editor_toolbar {
+  @apply opacity-0;
+}
+
+.ql-toolbar.ql-snow {
+  @apply p-2;
+  @apply border-color-grey-02;
+
+  button {
+    @apply text-color-text;
+    @apply outline-none;
+    @apply rounded;
+
+    ::ng-deep .ql-stroke,
+    ::ng-deep .ql-stroke-mitter {
+      stroke: var(--color-text);
+    }
+
+    &:hover {
+      @apply text-color-primary-text;
+
+      ::ng-deep .ql-stroke,
+      ::ng-deep .ql-stroke-mitter {
+        stroke: var(--color-primary);
+      }
+    }
+
+    &:active:not(:disabled) {
+      @apply bg-color-ghost-click;
+      @apply border-color-primary-click;
+      @apply ring-1 ring-color-primary-click ring-offset-1 ring-offset-color-grey-02;
+
+      ::ng-deep .ql-stroke,
+      ::ng-deep .ql-stroke-mitter {
+        stroke: var(--color-primary);
+      }
+    }
+
+    &:focus:not(:disabled) {
+      @apply bg-color-ghost-focus;
+      @apply ring-2 ring-color-primary-focus ring-offset-2 ring-offset-color-grey-02;
+
+      ::ng-deep .ql-stroke,
+      ::ng-deep .ql-stroke-mitter {
+        stroke: var(--color-primary);
+      }
+    }
+
+    &.ql-active {
+      ::ng-deep .ql-stroke,
+      ::ng-deep .ql-stroke-mitter {
+        stroke: var(--color-primary);
+      }
+    }
+  }
+
+  animation: 0.3s fxEditorAppear cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
+}
+
+.ql-container.ql-snow {
+  @apply border-color-grey-02;
+  @apply h-80;
+
+  animation: 0.3s fxEditorAppear cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
+}
+
+::ng-deep .ql-editor {
+  @apply p-4;
+  @apply font-default;
+  @apply text-color-text;
+  @apply font-normal;
+  @apply not-italic;
+  @apply text-base;
+  @apply leading-normal;
+
+  &.ql-blank::before {
+    @apply font-default;
+    @apply text-color-text;
+    @apply font-normal;
+    @apply italic;
+    @apply text-base;
+    @apply leading-normal;
+  }
+}

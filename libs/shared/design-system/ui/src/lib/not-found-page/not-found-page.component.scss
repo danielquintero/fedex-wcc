@@ -1,0 +1,20 @@
+
+.not-found-page {
+	@apply max-w-7xl;
+	@apply mx-auto;
+	@apply flex;
+	@apply flex-col;
+	@apply items-center;
+	@apply justify-center;
+	@apply font-default;
+	@apply text-base;
+
+	h4 {
+		@apply mt-8;
+		@apply text-color-primary;
+	}
+
+	p {
+		@apply mb-6;
+	}
+}

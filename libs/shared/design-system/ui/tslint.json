@@ -1,8 +1,8 @@
 {
   "extends": "../../../tslint.json",
   "rules": {
-    "directive-selector": [true, "attribute", "fedexUi", "camelCase"],
-    "component-selector": [true, "element", "fedex-ui", "kebab-case"]
+    "directive-selector": [true, "attribute", "fedex", "camelCase"],
+    "component-selector": [true, "element", "fedex", "kebab-case"]
   },
   "linterOptions": {
     "exclude": ["!**/*"]

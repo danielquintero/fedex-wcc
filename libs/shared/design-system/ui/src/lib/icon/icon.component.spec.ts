@@ -1,24 +1,24 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { createComponentFactory, Spectator } from '@ngneat/spectator/jest';
 import { IconComponent } from './icon.component';
 
 describe('IconComponent', () => {
-  let component: IconComponent;
-  let fixture: ComponentFixture<IconComponent>;
+	let spectator: Spectator<IconComponent>;
+	const createComponent = createComponentFactory({
+		component: IconComponent,
+		declarations: [],
+		imports: [],
+	});
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [IconComponent],
-    }).compileComponents();
-  });
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(IconComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+	it('should create the component', () => {
+		spectator = createComponent({
+			detectChanges: true,
+			props: {
+				type: 'file_download',
+				color: 'primary',
+				css: 'extra-css_class',
+				size: 'small',
+			},
+		});
+		expect(spectator.component).toBeInstanceOf(IconComponent);
+	});
 });

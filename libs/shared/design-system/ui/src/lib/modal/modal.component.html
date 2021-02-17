@@ -1,0 +1,35 @@
+<!-- Modal -->
+<div
+  #modal
+  class="fedex-modal_wrapper"
+  [attr.visible]="visible"
+  (click)="modalClick($event)"
+>
+  <div
+    class="fedex-modal"
+    role="dialog"
+    aria-modal="true"
+    [attr.id]="id"
+    [attr.aria-labelledby]="id + '-label'"
+  >
+    <div class="fedex-modal_header">
+      <h5 id="{{ id }}-label">{{ title }}</h5>
+      <fedex-button
+        id="{{ id }}-close-button"
+        type="button"
+        action="ghost"
+        i18n-label="@@uiComponentModalButtonClose"
+        label="Close"
+        icon="close"
+        [iconOnly]="true"
+        (click)="hide()"
+      >
+      </fedex-button>
+    </div>
+    <div id="{{ id }}-region" role="region">
+      <ng-content select="[modal-body]"></ng-content>
+      <ng-content></ng-content>
+      <ng-content select="[modal-footer]"></ng-content>
+    </div>
+  </div>
+</div>

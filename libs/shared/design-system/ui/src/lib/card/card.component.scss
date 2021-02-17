@@ -1,0 +1,93 @@
+$ease: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+article {
+  @apply rounded;
+  @apply bg-white;
+  @apply overflow-hidden;
+  @apply border;
+  @apply font-default;
+  @apply text-color-text;
+  @apply font-normal;
+  @apply not-italic;
+  @apply text-base;
+  @apply leading-normal;
+  @apply pb-6;
+
+  transition: height 0.25s $ease;
+
+  &.is-elevated {
+    @apply shadow;
+  }
+
+  ::ng-deep [card-place-at-top] {
+    @apply block;
+  }
+
+  ::ng-deep header {
+    @apply flex;
+    @apply flex-row;
+    @apply flex-nowrap;
+    @apply items-center;
+    @apply justify-center;
+    @apply mt-6;
+    @apply mx-6;
+
+    [card-header] {
+      @apply block;
+      @apply flex-grow;
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        @apply text-color-primary;
+      }
+    }
+
+    .fedex-button {
+      &[aria-expanded='true'] {
+        fedex-icon {
+          transform: scaleY(-1);
+          transition: transform 0.15s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+        }
+      }
+
+      &[aria-expanded='false'] {
+        fedex-icon {
+          transform: scaleY(1);
+        }
+      }
+    }
+  }
+
+  ::ng-deep [role='region'] {
+    @apply block;
+    @apply h-auto;
+    @apply opacity-100;
+
+    transition: opacity 0.15s $ease, max-height 0.15s $ease;
+
+    &[hidden] {
+      @apply max-h-0;
+      @apply opacity-0;
+      @apply overflow-hidden;
+      @apply invisible; // removes tabindex
+    }
+
+    [card-body] {
+      @apply mt-6;
+      @apply mx-6;
+    }
+
+    [card-footer] {
+      @apply mt-6;
+      @apply mx-6;
+    }
+  }
+
+  ::ng-deep [card-place-at-bottom] {
+    @apply block;
+  }
+}

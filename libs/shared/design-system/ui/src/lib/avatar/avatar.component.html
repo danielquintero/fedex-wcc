@@ -1,0 +1,11 @@
+<!-- Avatar -->
+<span class="fedex-avatar size-{{ size }}">
+  <span *ngIf="!image">{{ name }}</span>
+  <img
+    *ngIf="image"
+    class="fedex-avatar_image"
+    [attr.src]="image"
+    alt="{{ name }} avatar image"
+    i18n-alt="@@uiComponentAvatarImageAltText"
+  />
+</span>

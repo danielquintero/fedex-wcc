@@ -1,0 +1,252 @@
+// reset for tailwind appearance
+::ng-deep button,
+::ng-deep [type='button'],
+::ng-deep [type='reset'],
+::ng-deep [type='submit'] {
+  @apply appearance-none;
+}
+
+.fedex-button {
+  @apply inline-block;
+  @apply items-center;
+  @apply px-8;
+  @apply py-3;
+  @apply rounded;
+  @apply outline-none;
+  @apply cursor-pointer;
+  @apply transition-colors;
+  @apply font-default;
+  @apply font-semibold;
+  @apply not-italic;
+  @apply text-base;
+  @apply leading-none;
+  @apply border;
+  @apply border-transparent;
+  @apply appearance-none;
+  @apply whitespace-nowrap;
+
+  span {
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+  }
+
+  ::ng-deep {
+    .fedex-icon {
+      @apply text-lg;
+
+      line-height: 1.45rem; // mat-icons are not center aligned
+    }
+  }
+
+  /* Variant: Uppercase */
+
+  &.is-uppercase {
+    @apply uppercase;
+  }
+
+  /* Variant: Icon */
+
+  &.has-icon-left {
+    @apply pl-6;
+  }
+
+  &.has-icon-right {
+    @apply pr-6;
+  }
+
+  /* Variant: size */
+
+  &.size-small {
+    @apply px-4;
+    @apply py-1;
+
+    &.has-icon-left {
+      @apply pl-2;
+    }
+
+    &.has-icon-right {
+      @apply pr-2;
+    }
+  }
+
+  &.size-large {
+    @apply px-10;
+    @apply py-3.5;
+    @apply font-bold;
+
+    border-radius: 10px;
+
+    &.has-icon-left {
+      @apply pl-8;
+    }
+
+    &.has-icon-right {
+      @apply pr-8;
+    }
+  }
+
+  /* Variant: icon-only */
+
+  &.is-icon-only {
+    @apply py-3;
+    @apply px-2;
+
+    &.size-small {
+      @apply py-1;
+      @apply px-0;
+    }
+
+    &.size-large {
+      @apply py-3.5;
+      @apply px-2.5;
+    }
+  }
+
+  /* Variant: floating action button */
+
+  &.is-fab {
+    @apply absolute;
+    @apply bottom-4;
+    @apply right-4;
+    @apply py-4;
+    @apply px-3;
+    @apply rounded-full;
+    @apply shadow-lg;
+    @apply z-40;
+
+    &.size-small {
+      @apply py-3;
+      @apply px-2;
+    }
+
+    &.size-large {
+      @apply py-5;
+      @apply px-4;
+    }
+  }
+
+  /* Primary button */
+
+  &.is-primary {
+    @apply bg-color-primary;
+    @apply text-color-primary-text;
+
+    ::ng-deep {
+      .fedex-icon {
+        @apply text-color-primary-icon;
+      }
+    }
+
+    &:hover:not(:disabled) {
+      @apply bg-color-primary-hover;
+    }
+
+    &:active:not(:disabled) {
+      @apply bg-color-primary-click;
+      @apply border-color-primary-click;
+      @apply ring-1 ring-color-primary-click ring-offset-1 ring-offset-color-grey-02;
+    }
+
+    &:focus:not(:disabled) {
+      @apply bg-color-primary-focus;
+      @apply ring-2 ring-color-primary-focus ring-offset-2 ring-offset-color-grey-02;
+    }
+
+    &:disabled {
+      @apply bg-color-disabled;
+      @apply text-color-disabled-text;
+      @apply cursor-not-allowed;
+
+      ::ng-deep {
+        .fedex-icon {
+          @apply text-color-disabled-text;
+        }
+      }
+    }
+  }
+
+  /* Secondary button */
+
+  &.is-secondary {
+    @apply bg-color-secondary;
+    @apply text-color-secondary-text;
+    @apply border;
+    @apply border-color-grey-02;
+
+    ::ng-deep {
+      .fedex-icon {
+        @apply text-color-secondary-icon;
+      }
+    }
+
+    &:hover:not(:disabled) {
+      @apply bg-color-secondary-hover;
+    }
+
+    &:active:not(:disabled) {
+      @apply bg-color-secondary-click;
+      @apply border-color-primary-click;
+      @apply ring-1 ring-color-primary-click ring-offset-1 ring-offset-color-grey-02;
+    }
+
+    &:focus:not(:disabled) {
+      @apply bg-color-secondary-focus;
+      @apply ring-2 ring-color-primary-focus ring-offset-2 ring-offset-color-grey-02;
+    }
+
+    &:disabled {
+      @apply bg-color-disabled;
+      @apply text-color-disabled-text;
+      @apply cursor-not-allowed;
+
+      ::ng-deep {
+        .fedex-icon {
+          @apply text-color-disabled-text;
+        }
+      }
+    }
+  }
+
+  /* Ghost button */
+
+  &.is-ghost {
+    @apply bg-color-ghost;
+    @apply text-color-ghost-text;
+
+    ::ng-deep {
+      .fedex-icon {
+        @apply text-color-ghost-icon;
+      }
+    }
+
+    &:hover:not(:disabled) {
+      @apply bg-color-ghost-hover;
+    }
+
+    &:active:not(:disabled) {
+      @apply bg-color-ghost-click;
+      @apply border-color-primary-click;
+      @apply ring-1 ring-color-primary-click ring-offset-1 ring-offset-color-grey-02;
+    }
+
+    &:focus:not(:disabled) {
+      @apply bg-color-ghost-focus;
+      @apply ring-2 ring-color-primary-focus ring-offset-2 ring-offset-color-grey-02;
+    }
+
+    &:disabled {
+      @apply text-color-disabled-text;
+      @apply cursor-not-allowed;
+
+      ::ng-deep {
+        .fedex-icon {
+          @apply text-color-disabled-text;
+        }
+      }
+    }
+  }
+}

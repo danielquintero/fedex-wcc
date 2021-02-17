@@ -1,0 +1,95 @@
+.fedex-modal_wrapper {
+  @apply fixed;
+  @apply block;
+  @apply top-0;
+  @apply left-0;
+  @apply h-screen;
+  @apply w-screen;
+  @apply bg-black;
+  @apply z-50;
+  @apply bg-opacity-30;
+
+  &[visible='false'] {
+    @apply hidden;
+  }
+}
+
+.fedex-modal {
+  @apply flex;
+  @apply flex-col;
+  @apply absolute;
+  @apply w-auto;
+  @apply h-auto;
+  @apply top-1/2;
+  @apply left-1/2;
+  @apply bg-white;
+  @apply rounded;
+  @apply shadow-2xl;
+  @apply z-auto;
+  @apply pt-4;
+  @apply pl-6;
+  @apply pr-4;
+  @apply pb-6;
+
+  min-width: 26rem;
+  max-width: 95vw;
+  min-height: initial;
+  max-height: 95vh;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+  transform-style: preserve-3d;
+}
+
+.fedex-modal_header {
+  @apply flex;
+  @apply flex-row;
+  @apply flex-nowrap;
+  @apply items-center;
+  @apply justify-center;
+  @apply mb-4;
+
+  h5 {
+    @apply block;
+    @apply flex-grow;
+
+    color: var(--rocket-blue);
+  }
+}
+
+[role='region'] {
+  @apply flex-1;
+  @apply flex;
+  @apply flex-col;
+}
+
+::ng-deep [modal-body] {
+  @apply flex-1;
+  @apply block;
+  @apply overflow-auto;
+  @apply font-default;
+  @apply text-color-text;
+  @apply font-normal;
+  @apply not-italic;
+  @apply text-base;
+  @apply leading-normal;
+  @apply mr-2;
+}
+
+::ng-deep [modal-footer] {
+  @apply flex;
+  @apply font-default;
+  @apply text-color-text;
+  @apply font-normal;
+  @apply not-italic;
+  @apply text-base;
+  @apply leading-normal;
+  @apply mt-6;
+  @apply mr-2;
+
+  ::ng-deep button,
+  [type='button'],
+  [type='reset'],
+  [type='submit'] {
+    @apply appearance-none;
+  }
+}

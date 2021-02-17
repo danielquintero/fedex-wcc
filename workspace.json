@@ -156,7 +156,7 @@
       "projectType": "library",
       "root": "libs/shared/design-system/ui",
       "sourceRoot": "libs/shared/design-system/ui/src",
-      "prefix": "fedex-ui",
+      "prefix": "fedex",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -385,72 +385,6 @@
       },
       "schematics": {}
     },
-    "shared-util-http": {
-      "root": "libs/shared/util-http",
-      "sourceRoot": "libs/shared/util-http/src",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/shared/util-http/**/*.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/shared/util-http/jest.config.js",
-            "passWithNoTests": true
-          },
-          "outputs": ["coverage/libs/shared/util-http"]
-        }
-      }
-    },
-    "shared-util-form": {
-      "root": "libs/shared/util-form",
-      "sourceRoot": "libs/shared/util-form/src",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/shared/util-form/**/*.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/shared/util-form/jest.config.js",
-            "passWithNoTests": true
-          },
-          "outputs": ["coverage/libs/shared/util-form"]
-        }
-      }
-    },
-    "shared-util-mock-server": {
-      "root": "libs/shared/util-mock-server",
-      "sourceRoot": "libs/shared/util-mock-server/src",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/shared/util-mock-server/**/*.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/shared/util-mock-server/jest.config.js",
-            "passWithNoTests": true
-          },
-          "outputs": ["coverage/libs/shared/util-mock-server"]
-        }
-      }
-    },
     "shared-design-system-icons": {
       "projectType": "library",
       "root": "libs/shared/design-system/icons",
@@ -486,6 +420,50 @@
         }
       },
       "schematics": {}
+    },
+    "shared-utils": {
+      "root": "libs/shared/utils",
+      "sourceRoot": "libs/shared/utils/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/utils/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/utils/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/libs/shared/utils"]
+        }
+      }
+    },
+    "shared-mock-server": {
+      "root": "libs/shared-mock-server",
+      "sourceRoot": "libs/shared-mock-server/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared-mock-server/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared-mock-server/jest.config.js",
+            "passWithNoTests": true
+          },
+          "outputs": ["coverage/libs/shared-mock-server"]
+        }
+      }
     }
   },
   "cli": {

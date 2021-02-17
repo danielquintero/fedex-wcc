@@ -1,5 +1,5 @@
 import { Server } from 'miragejs';
-import { AppRegistry, makeServer } from '@fedex/shared-util-mock-server';
+import { AppRegistry, makeServer } from '@fedex/shared/mock-server';
 import { getGreeting } from '../support/app.po';
 
 describe('sign in page', () => {

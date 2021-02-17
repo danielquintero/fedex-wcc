@@ -1,7 +1,3 @@
-/* tslint:disable:no-var-requires */
-/* tslint:disable:no-require-imports */
-import { writeFileSync } from 'fs';
-import { join } from 'path';
 import * as webpack from 'webpack';
 
 const purgecss = require('@fullhuman/postcss-purgecss');

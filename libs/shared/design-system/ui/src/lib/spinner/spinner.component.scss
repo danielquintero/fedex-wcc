@@ -1,0 +1,46 @@
+.fedex-spinner {
+  & circle {
+    stroke-dasharray: 126.7; // radius
+  }
+
+  &.determinate {
+    transform: rotate(-90deg);
+
+    circle {
+      transition: stroke-dashoffset 0.2s ease-in-out;
+    }
+  }
+
+  &.indeterminate {
+    animation: rotate 2s linear infinite;
+
+    & circle {
+      animation: dash 1.5s ease-in-out infinite;
+      stroke-linecap: round;
+    }
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+    transform-origin: center center;
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 127;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 127;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90, 127;
+    stroke-dashoffset: -124;
+  }
+}

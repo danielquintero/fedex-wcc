@@ -1,0 +1,19 @@
+<svg
+  class="fedex-spinner"
+  [ngClass]="mode"
+  viewBox="0 0 50 50"
+  [style.width]="diameter"
+  [style.height]="diameter"
+>
+  <circle
+    cx="25"
+    cy="25"
+    r="20"
+    fill="none"
+    stroke-width="4"
+    [attr.stroke]="color"
+    [style.stroke-dashoffset]="
+      mode === 'determinate' ? 126.7 - (progress / 100) * 126.7 : null
+    "
+  ></circle>
+</svg>

@@ -1,0 +1,22 @@
+<ul class="max-w-lg">
+  <li
+    class="fedex-item-list"
+    [ngClass]="{ 'border-b border-color-grey-03': showDivider }"
+    *ngFor="let item of items; trackBy: trackById"
+  >
+    <div class="fedex-item-list-child">
+      <h6>{{ item.title }}</h6>
+      <span>{{ item.description }}</span>
+      <span>{{ item.secondaryDescription }}</span>
+    </div>
+    <div *ngIf="item.showButton && item.button">
+      <fedex-button
+        [icon]="item.button!.icon"
+        action="ghost"
+        [label]="item.button!.icon"
+        [iconOnly]="true"
+        (clickEmitter)="buttonEmitter.emit($event)"
+      ></fedex-button>
+    </div>
+  </li>
+</ul>

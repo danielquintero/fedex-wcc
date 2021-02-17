@@ -1,0 +1,13 @@
+.fedex-item-list {
+  @apply flex;
+  @apply items-center;
+  @apply justify-between;
+  @apply px-1;
+  @apply py-3;
+  @apply w-full;
+
+  .fedex-item-list-child {
+    @apply flex;
+    @apply flex-col;
+  }
+}

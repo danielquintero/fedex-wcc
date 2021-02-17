@@ -1,0 +1,25 @@
+<!-- tooltip -->
+<span class="fedex-tooltip {{ css }} size-{{ size }}" #tooltip>
+  <button
+    type="button"
+    role="button"
+    class="fedex-tooltip_button"
+    id="{{ id }}"
+    attr.aria-labelledby="{{ id }}-tip"
+    aria-expanded="false"
+    (keydown)="tooltipKeydown($event)"
+    (mousedown)="tooltipMousedown($event)"
+    (click)="tooltipClick($event)"
+    (focus)="tooltipFocus()"
+    (blur)="tooltipBlur()"
+  >
+    <fedex-icon
+      type="{{ icon }}"
+      color="{{ color }}"
+      size="{{ size }}"
+    ></fedex-icon>
+  </button>
+  <span class="fedex-tooltip_tip" id="{{ id }}-tip" role="tooltip">
+    {{ label }}
+  </span>
+</span>

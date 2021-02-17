@@ -1,0 +1,36 @@
+<button
+  [ngClass]="{
+    'is-icon-only': iconOnly && icon !== '',
+    'is-fab': isFab,
+    'is-uppercase': uppercase
+  }"
+  class="fedex-button is-{{ action }} size-{{ size }} {{
+    icon !== '' ? 'has-icon-' + iconPosition : ''
+  }} {{ css }}"
+  [attr.id]="id ? 'fedex-button-' + id : null"
+  [attr.type]="type"
+  [disabled]="disabled"
+  [attr.aria-controls]="ariaControls ? ariaControls : null"
+  [attr.aria-disabled]="disabled ? disabled : null"
+  [attr.aria-expanded]="ariaExpanded ? ariaExpanded : null"
+  [attr.aria-labelledby]="ariaLabelledBy ? ariaLabelledBy : null"
+  (click)="clickEmitter.emit($event)"
+>
+  <fedex-icon
+    *ngIf="
+      (icon !== '' && iconPosition === 'left') || (iconOnly && icon !== '')
+    "
+    css="{{ !iconOnly && !isFab ? 'mr-1' : '' }}"
+    [type]="icon"
+  >
+  </fedex-icon>
+  <span [ngClass]="{ 'sr-only': (iconOnly && icon !== '') || isFab }">{{
+    label
+  }}</span>
+  <fedex-icon
+    *ngIf="icon !== '' && iconPosition === 'right' && !iconOnly"
+    css="{{ !isFab ? 'ml-1' : '' }}"
+    [type]="icon"
+  >
+  </fedex-icon>
+</button>

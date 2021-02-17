@@ -1,0 +1,21 @@
+<input
+  type="checkbox"
+  id="fedex-form-checkbox-{{ id }}"
+  class="fedex-form-checkbox is-{{ type }} {{ css }} label-{{ labelPosition }}"
+  value="{{ value }}"
+  [attr.checked]="checked ? 'true' : null"
+  [attr.disabled]="disabled ? 'true' : null"
+/>
+<label for="fedex-form-checkbox-{{ id }}" [class.full-width]="fullWidth">
+  <fedex-icon
+    *ngIf="icon && iconPosition === 'left'"
+    type="{{ icon }}"
+    css="mr-2"
+  ></fedex-icon>
+  {{ label }}
+  <fedex-icon
+    *ngIf="icon && iconPosition === 'right'"
+    type="{{ icon }}"
+    css="ml-2"
+  ></fedex-icon>
+</label>

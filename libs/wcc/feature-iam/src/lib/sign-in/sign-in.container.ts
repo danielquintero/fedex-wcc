@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { IamFacade } from '@fedex/shared-iam-data-access';
-import { email } from '@fedex/shared-util-form';
+import { email } from '@fedex/shared/utils';
 
 @Component({
   selector: 'fedex-sign-in',

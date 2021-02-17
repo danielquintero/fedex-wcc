@@ -29,14 +29,12 @@
       ],
       "@fedex/shared-iam-util": ["libs/shared/iam/util/src/index.ts"],
       "@fedex/shared-util-http": ["libs/shared/util-http/src/index.ts"],
-      "@fedex/shared-util-form": ["libs/shared/util-form/src/index.ts"],
-      "@fedex/shared-util-mock-server": [
-        "libs/shared/util-mock-server/src/index.ts"
-      ],
       "@fedex/wcc-feature-shell": ["libs/wcc/feature-shell/src/index.ts"],
       "@fedex/design-system/icons": [
         "libs/shared/design-system/icons/src/index.ts"
-      ]
+      ],
+      "@fedex/shared/utils": ["libs/shared/utils/src/index.ts"],
+      "@fedex/shared/mock-server": ["libs/shared-mock-server/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

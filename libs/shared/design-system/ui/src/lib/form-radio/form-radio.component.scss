@@ -1,0 +1,205 @@
+$ease: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+
+.fedex-form-radio {
+  @apply sr-only;
+
+  + label {
+    @apply relative;
+    @apply z-auto;
+    @apply inline-block;
+    @apply py-0;
+    @apply pr-0;
+    @apply pl-9;
+    @apply mt-0;
+    @apply mr-2;
+    @apply mb-6;
+    @apply ml-0;
+    @apply cursor-pointer;
+    @apply font-default;
+    @apply text-color-text;
+    @apply font-semibold;
+    @apply not-italic;
+    @apply text-base;
+    @apply align-baseline;
+    @apply leading-none;
+    @apply align-baseline;
+    @apply select-none;
+
+    transition: color 0.15s $ease;
+
+    &.full-width {
+      @apply block;
+      @apply w-full;
+    }
+
+    .hidden-label {
+      @apply absolute;
+      @apply overflow-hidden;
+      @apply sr-only;
+    }
+
+    &::before {
+      @apply absolute;
+      @apply z-auto;
+      @apply inline-block;
+      @apply top-2;
+      @apply right-auto;
+      @apply bottom-auto;
+      @apply left-0;
+      @apply w-6;
+      @apply h-6;
+      @apply rounded-full;
+      @apply bg-white;
+      @apply border-2;
+      @apply border-black;
+      @apply outline-none;
+
+      content: '';
+      transform: translateY(-50%);
+      transform-origin: initial;
+      transition: border-color 0.15s $ease, background-color 0.15s $ease;
+    }
+
+    &::after {
+      @apply absolute;
+      @apply z-auto;
+      @apply inline-block;
+      @apply top-2;
+      @apply right-auto;
+      @apply bottom-auto;
+      @apply rounded-full;
+      @apply left-0;
+      @apply w-2;
+      @apply h-2;
+      @apply bg-transparent;
+
+      content: '';
+      transform: translate(0.5rem, -50%);
+      transition: background-color 0.15s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    }
+
+    &.tag {
+      &::before {
+        @apply border-transparent;
+      }
+
+      &::after {
+        @apply w-3;
+        @apply h-3;
+
+        transform: translate(0.375rem, -50%);
+      }
+
+      &.yellow {
+        &::after {
+          background-color: #fec61f;
+        }
+      }
+
+      &.green {
+        &::after {
+          background-color: green;
+        }
+      }
+
+      &.blue {
+        &::after {
+          background-color: blue;
+        }
+      }
+
+      &.red {
+        &::after {
+          background-color: red;
+        }
+      }
+    }
+
+    &:hover:not(:disabled) {
+      @apply text-black;
+
+      &::before {
+        @apply border-color-primary;
+      }
+    }
+  }
+
+  &.label-left + label {
+    @apply pl-0;
+    @apply pr-10;
+    @apply ml-0;
+    @apply mr-0;
+
+    &::before {
+      @apply right-0;
+      @apply left-auto;
+    }
+
+    &::after {
+      @apply right-4;
+      @apply left-auto;
+    }
+  }
+
+  &:focus {
+    + label {
+      &::before {
+        @apply ring-2 ring-color-primary-focus ring-offset-2 ring-offset-color-grey-02;
+      }
+    }
+  }
+
+  &:disabled {
+    + label {
+      @apply text-color-disabled-text;
+      @apply pointer-events-none;
+
+      &::before {
+        @apply opacity-50;
+      }
+    }
+  }
+
+  &:checked {
+    + label {
+      &::before {
+        @apply border-color-primary;
+        @apply bg-color-primary;
+      }
+
+      &::after {
+        @apply bg-white;
+      }
+
+      &.tag {
+        &::before {
+          @apply bg-transparent;
+        }
+
+        &.yellow {
+          &::after {
+            background-color: #fec61f;
+          }
+        }
+
+        &.green {
+          &::after {
+            background-color: green;
+          }
+        }
+
+        &.blue {
+          &::after {
+            background-color: blue;
+          }
+        }
+
+        &.red {
+          &::after {
+            background-color: red;
+          }
+        }
+      }
+    }
+  }
+}

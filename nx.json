@@ -1,9 +1,14 @@
 {
   "npmScope": "fedex",
-  "affected": { "defaultBase": "main" },
+  "affected": {
+    "defaultBase": "main"
+  },
   "implicitDependencies": {
     "workspace.json": "*",
-    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
@@ -24,26 +29,46 @@
     }
   },
   "projects": {
-    "wcc": { "tags": ["type:app", "app:wcc"] },
-    "wcc-e2e": { "tags": ["type:e2e"], "implicitDependencies": ["wcc"] },
-    "shared-design-system-ui": { "tags": ["scope:shared", "type:ui"] },
+    "wcc": {
+      "tags": ["type:app", "app:wcc"]
+    },
+    "wcc-e2e": {
+      "tags": ["type:e2e"],
+      "implicitDependencies": ["wcc"]
+    },
+    "shared-design-system-ui": {
+      "tags": ["scope:shared", "type:ui"]
+    },
     "shared-dashboard-feature-dashboard": {
       "tags": ["scope:shared", "type:feature"]
     },
     "shared-dashboard-data-access": {
       "tags": ["scope:shared", "type:data-access"]
     },
-    "wcc-feature-shell": { "tags": ["scope:wcc", "type:feature"] },
+    "wcc-feature-shell": {
+      "tags": ["scope:wcc", "type:feature"]
+    },
     "shared-design-system-ui-e2e": {
       "tags": [],
       "implicitDependencies": ["shared-design-system-ui"]
     },
-    "shared-iam-data-access": { "tags": ["scope:shared", "type:data-access"] },
-    "wcc-feature-iam": { "tags": ["scope:wcc", "type:feature"] },
-    "shared-iam-util": { "tags": ["scope:shared", "type:util"] },
-    "shared-util-http": { "tags": ["scope:shared", "type:util"] },
-    "shared-util-form": { "tags": ["scope:shared", "type:util"] },
-    "shared-util-mock-server": { "tags": ["scope:shared", "type:util"] },
-    "shared-design-system-icons": { "tags": ["scope:shared", "type:ui"] }
+    "shared-iam-data-access": {
+      "tags": ["scope:shared", "type:data-access"]
+    },
+    "wcc-feature-iam": {
+      "tags": ["scope:wcc", "type:feature"]
+    },
+    "shared-iam-util": {
+      "tags": ["scope:shared", "type:util"]
+    },
+    "shared-design-system-icons": {
+      "tags": ["scope:shared", "type:ui"]
+    },
+    "shared-utils": {
+      "tags": ["scope:shared", "type:util"]
+    },
+    "shared-mock-server": {
+      "tags": ["scope:shared", "type:util"]
+    }
   }
 }
